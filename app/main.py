@@ -7,7 +7,7 @@ class Dictionary:
         self.table = [None] * capacity
         self.length = 0
         self.capacity = capacity
-        self.initial_capacity = capacity #for clear method
+        self.initial_capacity = capacity  # for clear method
 
     def __setitem__(self, key: Any, value: Any) -> None:
 
@@ -73,26 +73,11 @@ class Dictionary:
         return self.length
 
     def count_position(self, hash_value: int,
-                       capacity: Union[int, None] = None) -> Union[float, int]:
+                       capacity: Union[int, None] = None) -> int:
         if capacity is None:
             capacity = self.capacity
         return hash_value % capacity
 
-    def clear(self):
+    def clear(self) -> None:
         new_table = [None] * self.initial_capacity
         self.table = new_table
-
-#
-# custom_dict = Dictionary()
-#
-# custom_dict.__setitem__("asdfa", 12313)
-# custom_dict.__setitem__("fsfbbbbb", 869)
-# custom_dict.__setitem__("wwwww", 12313)
-# custom_dict.__setitem__("qqqqq", 869)
-# custom_dict.__setitem__("jjjjjjj", 123453)
-# custom_dict.__setitem__("pppppppppppp", 8665)
-# custom_dict.__setitem__("aaaaaaa", 123453)
-# custom_dict.__setitem__("zzzzz", 8665)
-#
-# custom_dict.clear()
-# print(custom_dict.table)
