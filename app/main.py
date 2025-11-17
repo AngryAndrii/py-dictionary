@@ -7,6 +7,7 @@ class Dictionary:
         self.table = [None] * capacity
         self.length = 0
         self.capacity = capacity
+        self.initial_capacity = capacity #for clear method
 
     def __setitem__(self, key: Any, value: Any) -> None:
 
@@ -76,3 +77,22 @@ class Dictionary:
         if capacity is None:
             capacity = self.capacity
         return hash_value % capacity
+
+    def clear(self):
+        new_table = [None] * self.initial_capacity
+        self.table = new_table
+
+#
+# custom_dict = Dictionary()
+#
+# custom_dict.__setitem__("asdfa", 12313)
+# custom_dict.__setitem__("fsfbbbbb", 869)
+# custom_dict.__setitem__("wwwww", 12313)
+# custom_dict.__setitem__("qqqqq", 869)
+# custom_dict.__setitem__("jjjjjjj", 123453)
+# custom_dict.__setitem__("pppppppppppp", 8665)
+# custom_dict.__setitem__("aaaaaaa", 123453)
+# custom_dict.__setitem__("zzzzz", 8665)
+#
+# custom_dict.clear()
+# print(custom_dict.table)
